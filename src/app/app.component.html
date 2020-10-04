@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<table id="users" class="table table-bordered bg-dark">
+  <tr class="thead-dark">
+    <th *ngFor = "let column of headers">
+      {{column}}
+      
+    </th>
+  </tr>
+
+  <tr *ngFor = "let data of datas; index as i" style="color:white">
+    <!-- <td *ngFor = "let column of headers"> -->
+      <!-- {{row[column]}} 24/09 method-->
+      <td>{{data.Name}}</td>
+      <td>{{data.ID}}</td>
+      <td>{{data.Skills}}</td>
+      <td>{{data.Project}}</td>
+      <td>{{data.HCM}}</td>
+      <td>{{data.gender}}</td>
+    <!-- </td> -->
+    <td>
+      <button class="btn btn-danger" (click)="clearRow(i)">delete</button>  
+    </td>
+  </tr>
+</table>
+
+
+<form #val='ngForm' (ngSubmit)='addRow(val)'>
+    <div class="form-group">
+        <label for="Name" class="form-label">Name</label>
+        <input id="Name" type="text" ngModel name="Name" class="form-control" placeholder="Amala">
+    </div>
+    <div class="form-group">
+        <label for="id" class="form-label">Id</label>
+        <input id="id" type="number" ngModel name="ID" class="form-control" placeholder="12345">
+    </div>
+    <div class="form-group">
+        <label for="skills" class="form-label">skills</label>
+        <input id="skills" type="text" ngModel name="Skills" class="form-control" placeholder="Angular/ReactJs">
+    </div>
+    <div class="form-group">
+        <label for="project" class="form-label">Project</label>
+        <input id="project" type="text" ngModel name="Project" class="form-control" placeholder="Cognizant-internal">
+    </div>
+    <div class="form-group">
+        <label for="HCM" class="form-label">HCM</label>
+        <input id="HCM" type="text" ngModel name="HCM" class="form-control" placeholder="Alex">
+    </div>
+    <div class="form-group">
+        <label for="gender" class="form-label">Gender</label>
+        <input id="gender" type="text" ngModel name="gender" class="form-control" placeholder="Female">
+    </div>
+    <div class="form-group">
+        <button type='submit'class="btn btn-primary btn-lg mt-3" >Add</button>
+    </div>
+</form>
